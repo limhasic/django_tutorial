@@ -1,26 +1,30 @@
+-*- coding: utf-8 -*-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Photo App</title>
 </head>
 <body>
   <h1><a href="">사진 목록 페이지</a></h1>
+  <section>
+    {% for photo in photos %}
+    <div>
+      <h2>
+
+        <a href="{% url 'photo_detail' pk=photo.pk %}">{{ photo.title }}</a>
+      </h2>
+      <img src="{{photo.image}}}" alt = "{{photo.title}}" width = "300"/>
+      <p> {{photo.author}},  {{photo.price}}원 </p>
+    </div>
+    {% endfor %}
+  </section>
+  </body>
+</html>
 
 <!-- 템플릿에서 뷰로 데이터를 받아오려면 템플릿 태그를 활용해야함. -->
 <!-- {}를 사용하여 파이썬 문법 활용 가능 뷰에서 photos라는 데이터를 넘겨주면 댐 -->
 
-    <section>
-      {% for photo in photos %}
-      <div>
-        <h2>
-          <a href=""> {{photo.title}} </a>
-        </h2>
-        <img src="{{photo.image}}}" alt = "{{photo.title}}" width = "300"/>
-        <p> {{photo.author}},  {{photo.price}}원 </p>
-      </div>
-      {% endfor %}
-    </section>
-  </body>
-</html>
-
 <!-- 이미지 주소 문제 가능 -->
+
+
+<!-- url 추가로 인한 템플릿 반영  -->
